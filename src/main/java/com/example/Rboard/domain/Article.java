@@ -1,12 +1,43 @@
 package com.example.Rboard.domain;
 
-public abstract class Article {
+public class Article<T> {
 
-    private int boardId;
-
-    public Article(int boardId) {
-        this.boardId = boardId;
+    enum ARTICLE_TYPE {
+        NOTI, PRIVATE, PUBLIC;
     }
 
-    abstract Article modify();
+    private int articleId;
+    ARTICLE_TYPE type;
+    private T articleContents;
+    private User register;
+
+    public <T> Article(ARTICLE_TYPE type, User register) {
+        this.type = type;
+        this.register = register;
+    }
+
+    public int getArticleId() {
+        return articleId;
+    }
+
+    public void setArticleId(int articleId) {
+        this.articleId = articleId;
+    }
+
+    public ARTICLE_TYPE getType() {
+        return type;
+    }
+
+    public T getArticleContents() {
+        return articleContents;
+    }
+
+    public void setArticleContents(T articleContents) {
+        this.articleContents = articleContents;
+    }
+
+    public User getRegister() {
+        return register;
+    }
+
 }

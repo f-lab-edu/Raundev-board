@@ -10,13 +10,6 @@ public class User {
     int username;
     int password;
 
-    public User(USERTYPE TYPE, int id, int username, int password) {
-        this.TYPE = TYPE;
-        this.id = id;
-        this.username = username;
-        this.password = password;
-    }
-
     public USERTYPE getTYPE() {
         return TYPE;
     }
@@ -31,5 +24,21 @@ public class User {
 
     public int getPassword() {
         return password;
+    }
+
+    public void setTYPE(USERTYPE TYPE) {
+        this.TYPE = TYPE;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setUsername(int username) {
+        this.username = username;
+    }
+
+    public void setPassword(int password) {
+        this.password = password;
     }
 }

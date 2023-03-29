@@ -3,18 +3,13 @@ package com.example.Rboard.domain;
 public class Article<T> {
 
     enum ARTICLE_TYPE {
-        NOTI, PRIVATE, PUBLIC;
+        NOTI, PRIVATE, PUBLIC
     }
 
     private int articleId;
     ARTICLE_TYPE type;
     private T articleContents;
     private User register;
-
-    public <T> Article(ARTICLE_TYPE type, User register) {
-        this.type = type;
-        this.register = register;
-    }
 
     public int getArticleId() {
         return articleId;

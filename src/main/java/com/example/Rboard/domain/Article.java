@@ -2,25 +2,34 @@ package com.example.Rboard.domain;
 
 public class Article<T> {
 
-    enum ARTICLE_TYPE {
-        NOTI, PRIVATE, PUBLIC
-    }
 
-    private int articleId;
-    ARTICLE_TYPE type;
+
+    private Long articleId;
+    private ARTICLETYPE type;
     private T articleContents;
     private User register;
 
-    public int getArticleId() {
+    public Article(Long articleId, ARTICLETYPE type, T articleContents, User register) {
+        this.articleId = articleId;
+        this.type = type;
+        this.articleContents = articleContents;
+        this.register = register;
+    }
+
+    public Long getArticleId() {
         return articleId;
     }
 
-    public void setArticleId(int articleId) {
+    public void setArticleId(Long articleId) {
         this.articleId = articleId;
     }
 
-    public ARTICLE_TYPE getType() {
+    public ARTICLETYPE getType() {
         return type;
+    }
+
+    public void setType(ARTICLETYPE type) {
+        this.type = type;
     }
 
     public T getArticleContents() {
@@ -35,4 +44,7 @@ public class Article<T> {
         return register;
     }
 
+    public void setRegister(User register) {
+        this.register = register;
+    }
 }

@@ -2,19 +2,23 @@ package com.example.Rboard.domain;
 
 public class User {
 
-    enum USERTYPE {
-        ADMIN, USER, GUEST
+    private USERTYPE TYPE;
+    private String id;
+    private int username;
+    private int password;
+
+    public User(USERTYPE TYPE, String id, int username, int password) {
+        this.TYPE = TYPE;
+        this.id = id;
+        this.username = username;
+        this.password = password;
     }
-    USERTYPE TYPE;
-    int id;
-    int username;
-    int password;
 
     public USERTYPE getTYPE() {
         return TYPE;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -30,7 +34,7 @@ public class User {
         this.TYPE = TYPE;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -1,50 +1,55 @@
 package com.example.Rboard.domain;
 
-public class Article<T> {
+public class Article {
 
 
 
     private Long articleId;
-    private ARTICLETYPE type;
-    private T articleContents;
-    private User register;
+    private ARTICLETYPE articleType;
+    private String articleTitle;
+    private String articleContents;
+    private String registerId;
 
-    public Article(Long articleId, ARTICLETYPE type, T articleContents, User register) {
+    public Article(Long articleId, ARTICLETYPE articleType, String articleContents, String registerId) {
         this.articleId = articleId;
-        this.type = type;
+        this.articleType = articleType;
         this.articleContents = articleContents;
-        this.register = register;
+        this.registerId = registerId;
     }
 
     public Long getArticleId() {
         return articleId;
     }
 
-    public void setArticleId(Long articleId) {
-        this.articleId = articleId;
+    public ARTICLETYPE getArticleType() {
+        return articleType;
     }
 
-    public ARTICLETYPE getType() {
-        return type;
+    public String getArticleTitle() {
+        return articleTitle;
     }
 
-    public void setType(ARTICLETYPE type) {
-        this.type = type;
-    }
-
-    public T getArticleContents() {
+    public String getArticleContents() {
         return articleContents;
     }
 
-    public void setArticleContents(T articleContents) {
+    public String getRegisterId() {
+        return registerId;
+    }
+
+    public void setArticleType(ARTICLETYPE articleType) {
+        this.articleType = articleType;
+    }
+
+    public void setArticleTitle(String articleTitle) {
+        this.articleTitle = articleTitle;
+    }
+
+    public void setArticleContents(String articleContents) {
         this.articleContents = articleContents;
     }
 
-    public User getRegister() {
-        return register;
-    }
-
-    public void setRegister(User register) {
-        this.register = register;
+    public void setRegisterId(String registerId) {
+        this.registerId = registerId;
     }
 }

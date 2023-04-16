@@ -2,47 +2,47 @@ package com.example.Rboard.domain;
 
 public class User {
 
-    private USERTYPE TYPE;
-    private String id;
-    private int username;
-    private int password;
+    private String userId;
+    private String password;
+    private USERTYPE userType;
+    private String userName;
 
-    public User(USERTYPE TYPE, String id, int username, int password) {
-        this.TYPE = TYPE;
-        this.id = id;
-        this.username = username;
+    public User(String userId, String password, USERTYPE userType, String userName) {
+        this.userId = userId;
         this.password = password;
+        this.userType = userType;
+        this.userName = userName;
     }
 
-    public USERTYPE getTYPE() {
-        return TYPE;
+    public String getUserId() {
+        return userId;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public int getUsername() {
-        return username;
-    }
-
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setTYPE(USERTYPE TYPE) {
-        this.TYPE = TYPE;
+    public USERTYPE getUserType() {
+        return userType;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(int username) {
-        this.username = username;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setUserType(USERTYPE userType) {
+        this.userType = userType;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

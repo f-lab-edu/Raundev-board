@@ -1,27 +1,39 @@
 package com.example.Rboard.service.impl;
 
 import com.example.Rboard.domain.User;
+import com.example.Rboard.repository.UserRepository;
 import com.example.Rboard.service.UserService;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.stereotype.Service;
 
+@Service
+@MapperScan("com.example.Rboard.repository")
 public class UserServiceImpl implements UserService {
+
+    private UserRepository userRepository;
+
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Override
     public void join(User user) {
-
+        userRepository.create(user);
     }
 
     @Override
     public User findUser(String id) {
-        return null;
+        return userRepository.select(id);
     }
 
     @Override
     public User updateUser(User user) {
-        return null;
+        return userRepository.update(user);
     }
 
     @Override
     public boolean deleteUser(String deleteTargetUserId, User modiUser) {
-        return false;
+
+        return userRepository.delete(deleteTargetUserId);
     }
 }

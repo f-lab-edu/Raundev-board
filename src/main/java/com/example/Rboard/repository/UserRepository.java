@@ -1,7 +1,9 @@
 package com.example.Rboard.repository;
 
 import com.example.Rboard.domain.User;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface UserRepository {
 
     void create(User user);
@@ -10,6 +12,6 @@ public interface UserRepository {
 
     User update(User user);
 
-    boolean delete(String deleteTargetUserId, User modiUser);
+    boolean delete(String deleteTargetUserId);
 
 }

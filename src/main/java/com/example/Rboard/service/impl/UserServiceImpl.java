@@ -6,6 +6,8 @@ import com.example.Rboard.service.UserService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @MapperScan("com.example.Rboard.repository")
 public class UserServiceImpl implements UserService {
@@ -27,13 +29,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> findAllUsers() {
+        return userRepository.selectAll();
+    }
+
+    @Override
     public User updateUser(User user) {
         return userRepository.update(user);
     }
 
     @Override
     public boolean deleteUser(String deleteTargetUserId, User modiUser) {
-
         return userRepository.delete(deleteTargetUserId);
     }
 }

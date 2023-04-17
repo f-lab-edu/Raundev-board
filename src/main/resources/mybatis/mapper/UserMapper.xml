@@ -5,4 +5,8 @@
         select USER_ID , PASSWORD , USER_TYPE , USER_NAME
         from USERS;
     </select>
+    <insert id="create" >
+        insert Users(USER_ID, PASSWORD, USER_TYPE, USER_NAME)
+        Values(#{userId},#{password},#{userType},#{userName});
+    </insert>
 </mapper>

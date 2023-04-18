@@ -23,7 +23,7 @@ class UserServiceImplTest {
     @Test
     void join() {
         User user = new User();
-        user.setUserId("first");
+        user.setUserId("second");
         user.setUserName("A");
         user.setPassword("1234");
         user.setUserType(USERTYPE.USER);

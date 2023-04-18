@@ -1,7 +1,6 @@
 package com.example.Rboard.repository;
 
 import com.example.Rboard.domain.User;
-
 import java.util.List;
 
 public interface UserRepository {
@@ -12,7 +11,7 @@ public interface UserRepository {
 
     List<User> selectAll();
 
-    User update(User user);
+    User update(String id);
 
     boolean delete(String deleteTargetUserId);
 

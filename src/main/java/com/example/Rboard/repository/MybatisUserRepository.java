@@ -18,7 +18,7 @@ public interface MybatisUserRepository extends UserRepository{
     List<User> selectAll();
 
     @Override
-    User update(User user);
+    User update(String id);
 
     @Override
     boolean delete(String deleteTargetUserId);

@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.Rboard.repository.UserRepository">
-    <select id="select" resultType="com.example.Rboard.domain.User">
-        select USER_ID , PASSWORD , USER_TYPE , USER_NAME
-        from USERS;
-    </select>
+<mapper namespace="com.example.Rboard.repository.MybatisUserRepository">
+
     <insert id="create" >
         insert Users(USER_ID, PASSWORD, USER_TYPE, USER_NAME)
         Values(#{userId},#{password},#{userType},#{userName});
     </insert>
+
+    <select id="select" resultType="com.example.Rboard.domain.User">
+        select USER_ID , PASSWORD , USER_TYPE , USER_NAME
+        from USERS
+        where USER_ID = #{userId};
+    </select>
+
+    <select id="selectAll" resultMap="com.example.Rboard.domain.User">
+        select USER_ID , PASSWORD , USER_TYPE , USER_NAME
+        from USERS
+    </select>
+
+    <update id="update">
+        UPDATE USERS
+        SET PASSWORD = #{password}, USER_TYPE = #{userType}, USER_NAME = #{userName}
+        WHERE USER_ID = #{userId}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM MEMBER
+        WHERE USER_ID = #{userId}
+    </delete>
+
 </mapper>

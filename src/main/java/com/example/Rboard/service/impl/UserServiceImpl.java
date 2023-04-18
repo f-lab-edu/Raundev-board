@@ -3,13 +3,9 @@ package com.example.Rboard.service.impl;
 import com.example.Rboard.domain.User;
 import com.example.Rboard.repository.UserRepository;
 import com.example.Rboard.service.UserService;
-import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-@MapperScan("com.example.Rboard.repository")
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
@@ -34,8 +30,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUser(User user) {
-        return userRepository.update(user);
+    public User updateUser(String userId) {
+        return userRepository.update(userId);
     }
 
     @Override

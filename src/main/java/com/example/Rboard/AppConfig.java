@@ -10,12 +10,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class RboardConfig {
+public class AppConfig {
 
-    private final UserRepository userRepository;
+    @Autowired private final UserRepository userRepository;
 
-    @Autowired
-    public RboardConfig(UserRepository userRepository) {
+    public AppConfig(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -23,4 +22,6 @@ public class RboardConfig {
     public UserService userService(){
         return new UserServiceImpl(userRepository);
     }
+
+
 }

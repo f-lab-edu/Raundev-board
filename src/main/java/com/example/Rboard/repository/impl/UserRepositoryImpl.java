@@ -23,7 +23,7 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public User update(User user) {
+    public User update(String userId) {
         return null;
     }
 

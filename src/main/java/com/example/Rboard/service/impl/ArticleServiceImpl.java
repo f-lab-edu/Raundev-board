@@ -4,10 +4,12 @@ import com.example.Rboard.domain.Article;
 import com.example.Rboard.domain.User;
 import com.example.Rboard.repository.ArticleRepository;
 import com.example.Rboard.service.ArticleService;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ArticleServiceImpl implements ArticleService {
 
-    private ArticleRepository articleRepository;
+    private final ArticleRepository articleRepository;
 
     public ArticleServiceImpl(ArticleRepository articleRepository) {
         this.articleRepository = articleRepository;

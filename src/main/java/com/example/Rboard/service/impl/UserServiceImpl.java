@@ -3,12 +3,14 @@ package com.example.Rboard.service.impl;
 import com.example.Rboard.domain.User;
 import com.example.Rboard.repository.UserRepository;
 import com.example.Rboard.service.UserService;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;

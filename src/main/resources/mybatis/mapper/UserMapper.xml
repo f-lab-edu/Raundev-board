@@ -25,7 +25,7 @@
     </update>
 
     <delete id="delete">
-        DELETE FROM MEMBER
+        DELETE FROM USERS
         WHERE USER_ID = #{userId}
     </delete>
 

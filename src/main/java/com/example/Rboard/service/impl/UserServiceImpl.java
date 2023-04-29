@@ -3,14 +3,14 @@ package com.example.Rboard.service.impl;
 import com.example.Rboard.domain.User;
 import com.example.Rboard.repository.UserRepository;
 import com.example.Rboard.service.UserService;
-import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
-@MapperScan("com.example.Rboard.repository")
+import java.util.List;
+
+@Component
 public class UserServiceImpl implements UserService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -27,13 +27,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUser(User user) {
-        return userRepository.update(user);
+    public List<User> findAllUsers() {
+        return userRepository.selectAll();
+    }
+
+    @Override
+    public User updateUser(String userId) {
+        return userRepository.update(userId);
     }
 
     @Override
     public boolean deleteUser(String deleteTargetUserId, User modiUser) {
-
         return userRepository.delete(deleteTargetUserId);
     }
 }

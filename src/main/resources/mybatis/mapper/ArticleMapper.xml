@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.Rboard.repository.MybatisArticleRepository">
+
+    <insert id="create" >
+        insert ARTICLES(ARTICLE_ID, ARTICLE_TYPE, TITLE, CONTENTS, REGISTER_ID)
+        Values(#{articleId},#{articleType},#{articleTitle},#{articleContents},#{registerId});
+    </insert>
+
+    <select id="select" resultType="com.example.Rboard.domain.Article">
+        select ARTICLE_ID , ARTICLE_TYPE, TITLE, CONTENTS, REGISTER_ID
+        from ARTICLES
+        where ARTICLE_ID = #{articleId};
+    </select>
+
+    <update id="update">
+        UPDATE ARTICLES
+        SET REGISTER_ID = #{registerId}
+        <if test="articleTitle != null">
+            ,TITLE = #{articleTitle}
+        </if>
+        <if test="articleContents != null">
+            ,CONTENTS = #{articleContents}
+        </if>
+        <if test="articleType != null">
+            ,ARTICLE_TYPE = #{articleType}
+        </if>
+        WHERE ARTICLE_ID = #{articleId}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM ARTICLES
+        WHERE ARTICLE_ID = #{articleId}
+    </delete>
+
+</mapper>

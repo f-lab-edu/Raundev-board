@@ -1,6 +1,7 @@
 package com.example.Rboard.service;
 
 import com.example.Rboard.domain.User;
+import java.util.List;
 
 public interface UserService {
 
@@ -8,7 +9,9 @@ public interface UserService {
 
     User findUser(String id);
 
-    User updateUser(User user);
+    List<User> findAllUsers();
+
+    User updateUser(String userId);
 
     boolean deleteUser(String deleteTargetUserId, User modiUser);
 }

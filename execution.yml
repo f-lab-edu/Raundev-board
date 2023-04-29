@@ -10,7 +10,7 @@ scenarios:
     requests:
     - label:  rboardDemo
       method: GET
-      url: http://blazedemo.com/
+      url: http://211.174.6.17:18080/test
 #     - label: reserve
 #       method: POST
 #       url: http://bazedemo.com/abc

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ResponseBody
 @RequestMapping(value = "/users")
 public class UserController {
-    private final UserService userService;
+    private final UserService userService;  //userService
     private Logger logger = LoggerFactory.getLogger(UserService.class);
 
     public UserController(UserService userService) {

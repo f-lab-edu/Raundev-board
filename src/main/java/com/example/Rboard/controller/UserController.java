@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(value = "/users")
 public class UserController {
     private final UserService userService;  //userService
-    private Logger logger = LoggerFactory.getLogger(UserService.class);
+    private Logger logger = LoggerFactory.getLogger(UserService.class); //looger
 
     public UserController(UserService userService) {
         this.userService = userService;

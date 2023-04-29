@@ -1,0 +1,19 @@
+---
+execution:
+- concurrency: 10
+  hold-for: 2m
+  ramp-up: 1m
+  
+  senario: Excution Test
+scenarios:
+  Excution Test:
+    requests:
+    - label:  rboardDemo
+      method: GET
+      url: http://blazedemo.com/
+#     - label: reserve
+#       method: POST
+#       url: http://bazedemo.com/abc
+#       body:
+#         fromPort: Paris
+#         toPort: Buenos

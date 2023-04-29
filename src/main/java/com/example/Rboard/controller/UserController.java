@@ -18,8 +18,4 @@ public class UserController {
         this.userService = userService;
     }
 
-
-
-
-
 }

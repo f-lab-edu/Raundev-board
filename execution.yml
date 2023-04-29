@@ -3,8 +3,7 @@ execution:
 - concurrency: 10
   hold-for: 2m
   ramp-up: 1m
-  
-  senario: Excution Test
+  scenario: Excution Test
 scenarios:
   Excution Test:
     requests:

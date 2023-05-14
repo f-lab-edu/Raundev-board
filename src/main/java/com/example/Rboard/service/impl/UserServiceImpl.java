@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void join(User user) {
+    public void createUser(User user) {
         userRepository.create(user);
     }
 
@@ -32,8 +32,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUser(String userId) {
-        return userRepository.update(userId);
+    public Integer updateUser(User user) {
+        return userRepository.update(user);
     }
 
     @Override

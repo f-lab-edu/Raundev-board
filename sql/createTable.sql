@@ -14,7 +14,7 @@ ALTER TABLE rboard_db.ARTICLE
 
 CREATE TABLE rboard_db.USERS (
                                  USER_ID varchar(100) NOT NULL COMMENT '사용자 ID',
-                                 PASSWORD varchar(100) NOT NULL COMMENT '게시글 유형',
+                                 PASSWORD varchar(100) NOT NULL COMMENT '비밀 번호',
                                  USER_TYPE varchar(100) NOT NULL COMMENT '게시글의 제목',
                                  USER_NAME varchar(10) NOT NULL COMMENT '게시글의 내용',
                                  PRIMARY KEY (USER_ID)

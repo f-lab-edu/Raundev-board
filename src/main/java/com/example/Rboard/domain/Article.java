@@ -1,5 +1,7 @@
 package com.example.Rboard.domain;
 
+import java.util.Objects;
+
 public class Article {
 
 
@@ -10,9 +12,20 @@ public class Article {
     private String articleContents;
     private String registerId;
 
-    public Article(Long articleId, ARTICLETYPE articleType, String articleContents, String registerId) {
+    public Article(ARTICLETYPE articleType, String articleTitle, String articleContents,
+            String registerId) {
+        this.articleType = articleType;
+        this.articleTitle = articleTitle;
+        this.articleContents = articleContents;
+        this.registerId = registerId;
+    }
+
+    public Article(Long articleId, ARTICLETYPE articleType, String articleTitle,
+            String articleContents,
+            String registerId) {
         this.articleId = articleId;
         this.articleType = articleType;
+        this.articleTitle = articleTitle;
         this.articleContents = articleContents;
         this.registerId = registerId;
     }
@@ -51,5 +64,36 @@ public class Article {
 
     public void setRegisterId(String registerId) {
         this.registerId = registerId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Article article = (Article) o;
+        return Objects.equals(articleId, article.articleId)
+                && articleType == article.articleType && Objects.equals(articleTitle,
+                article.articleTitle) && Objects.equals(articleContents,
+                article.articleContents) && Objects.equals(registerId, article.registerId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(articleId, articleType, articleTitle, articleContents, registerId);
+    }
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "articleId=" + articleId +
+                ", articleType=" + articleType +
+                ", articleTitle='" + articleTitle + '\'' +
+                ", articleContents='" + articleContents + '\'' +
+                ", registerId='" + registerId + '\'' +
+                '}';
     }
 }

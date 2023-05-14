@@ -2,6 +2,7 @@ package com.example.Rboard.service;
 
 import com.example.Rboard.domain.Article;
 import com.example.Rboard.domain.User;
+import java.util.List;
 
 public interface ArticleService {
 
@@ -9,7 +10,10 @@ public interface ArticleService {
 
     Article selectArticle(Long articleId);
 
-    Article updateArticle(Article article, User user);
+    List<Article> selectAllArticle(User user);
+    List<Article> selectAllArticle();
+
+    Integer updateArticle(Article article, User user);
 
     boolean deleteArticle(Article article, User user);
 }

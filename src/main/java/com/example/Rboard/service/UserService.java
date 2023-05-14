@@ -5,13 +5,13 @@ import java.util.List;
 
 public interface UserService {
 
-    void join(User user);
+    void createUser(User user);
 
     User findUser(String id);
 
     List<User> findAllUsers();
 
-    User updateUser(String userId);
+    Integer updateUser(User user);
 
     boolean deleteUser(String deleteTargetUserId, User modiUser);
 }

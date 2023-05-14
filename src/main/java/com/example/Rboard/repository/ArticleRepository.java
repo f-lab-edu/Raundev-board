@@ -2,15 +2,18 @@ package com.example.Rboard.repository;
 
 import com.example.Rboard.domain.Article;
 import com.example.Rboard.domain.User;
+import java.util.List;
 
 public interface ArticleRepository {
 
-    void create(Article article, User user);
+    void create(Article article, String registerId);
 
     Article select(Long articleId);
 
-    Article update(Article article, User user);
+    List<Article> selectAll(String registerId);
 
-    boolean delete(Article article, User user);
+    Integer update(Article article, String registerId);
+
+    boolean delete(Article article);
 
 }

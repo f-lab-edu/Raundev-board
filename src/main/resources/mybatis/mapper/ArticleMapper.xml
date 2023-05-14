@@ -2,35 +2,53 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.Rboard.repository.MybatisArticleRepository">
 
+    <resultMap id="articleMap" type="com.example.Rboard.domain.Article">
+        <result property="articleId" column="article_id"/>
+        <result property="articleType" column="article_type"/>
+        <result property="articleTitle" column="article_title"/>
+        <result property="articleContents" column="article_contents"/>
+        <result property="registerId" column="register_id"/>
+    </resultMap>
+
     <insert id="create" >
-        insert ARTICLES(ARTICLE_ID, ARTICLE_TYPE, TITLE, CONTENTS, REGISTER_ID)
-        Values(#{articleId},#{articleType},#{articleTitle},#{articleContents},#{registerId});
+        insert ARTICLE(ARTICLE_TYPE, ARTICLE_TITLE, ARTICLE_CONTENTS, REGISTER_ID)
+        Values(#{article.articleType},#{article.articleTitle},#{article.articleContents},#{registerId});
     </insert>
 
-    <select id="select" resultType="com.example.Rboard.domain.Article">
-        select ARTICLE_ID , ARTICLE_TYPE, TITLE, CONTENTS, REGISTER_ID
-        from ARTICLES
-        where ARTICLE_ID = #{articleId};
+    <select id="select" resultMap="articleMap">
+        select ARTICLE_ID , ARTICLE_TYPE, ARTICLE_TITLE, ARTICLE_CONTENTS, REGISTER_ID
+        from ARTICLE
+        where ARTICLE_ID = #{article.articleId};
+    </select>
+
+    <select id="selectAll" resultMap="articleMap">
+        select ARTICLE_ID , ARTICLE_TYPE, ARTICLE_TITLE, ARTICLE_CONTENTS, REGISTER_ID
+        from ARTICLE
+        <trim prefix="WHERE">
+            <if test="userId != null and userId != ''">
+                register_id = #{registerId}
+            </if>
+        </trim>
     </select>
 
     <update id="update">
-        UPDATE ARTICLES
+        UPDATE ARTICLE
         SET REGISTER_ID = #{registerId}
         <if test="articleTitle != null">
-            ,TITLE = #{articleTitle}
+            ,ARTICLE_TITLE = #{article.articleTitle}
         </if>
         <if test="articleContents != null">
-            ,CONTENTS = #{articleContents}
+            ,ARTICLE_CONTENTS = #{article.articleContents}
         </if>
         <if test="articleType != null">
-            ,ARTICLE_TYPE = #{articleType}
+            ,ARTICLE_TYPE = #{article.articleType}
         </if>
-        WHERE ARTICLE_ID = #{articleId}
+        WHERE ARTICLE_ID = #{article.articleId}
     </update>
 
     <delete id="delete">
-        DELETE FROM ARTICLES
-        WHERE ARTICLE_ID = #{articleId}
+        DELETE FROM ARTICLE
+        WHERE ARTICLE_ID = #{article.articleId}
     </delete>
 
 </mapper>

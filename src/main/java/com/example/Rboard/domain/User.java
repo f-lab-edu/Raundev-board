@@ -1,5 +1,7 @@
 package com.example.Rboard.domain;
 
+import java.util.Objects;
+
 public class User {
 
     private String userId;
@@ -53,5 +55,24 @@ public class User {
     @Override
     public String toString(){
         return "User [ID : "+ this.userId+" NAME : "+this.userName+" TYPE : " + this.userType + " PASSWORD : " + this.password + " ]" ;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        User user = (User) o;
+        return Objects.equals(userId, user.userId) && Objects.equals(password,
+                user.password) && userType == user.userType && Objects.equals(userName,
+                user.userName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId, password, userType, userName);
     }
 }

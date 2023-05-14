@@ -41,7 +41,7 @@ class UserServiceImplTest {
         user.setUserName("A");
         user.setPassword("1234");
         user.setUserType(USERTYPE.USER);
-        userService.join(user);
+        userService.createUser(user);
         logger.info(user.toString());
     }
 

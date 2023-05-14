@@ -11,7 +11,7 @@ public interface UserRepository {
 
     List<User> selectAll();
 
-    User update(String id);
+    int update(User user);
 
     boolean delete(String deleteTargetUserId);
 

@@ -25,7 +25,7 @@
         select ARTICLE_ID , ARTICLE_TYPE, ARTICLE_TITLE, ARTICLE_CONTENTS, REGISTER_ID
         from ARTICLE
         <trim prefix="WHERE">
-            <if test="userId != null and userId != ''">
+            <if test="registerId != null and registerId != ''">
                 register_id = #{registerId}
             </if>
         </trim>
@@ -34,13 +34,13 @@
     <update id="update">
         UPDATE ARTICLE
         SET REGISTER_ID = #{registerId}
-        <if test="articleTitle != null">
+        <if test="article.articleTitle != null">
             ,ARTICLE_TITLE = #{article.articleTitle}
         </if>
-        <if test="articleContents != null">
+        <if test="article.articleContents != null">
             ,ARTICLE_CONTENTS = #{article.articleContents}
         </if>
-        <if test="articleType != null">
+        <if test="article.articleType != null">
             ,ARTICLE_TYPE = #{article.articleType}
         </if>
         WHERE ARTICLE_ID = #{article.articleId}
@@ -48,7 +48,7 @@
 
     <delete id="delete">
         DELETE FROM ARTICLE
-        WHERE ARTICLE_ID = #{article.articleId}
+        WHERE ARTICLE_ID = #{articleId}
     </delete>
 
 </mapper>

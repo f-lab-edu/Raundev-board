@@ -1,7 +1,6 @@
 package com.example.Rboard.repository;
 
 import com.example.Rboard.domain.Article;
-import com.example.Rboard.domain.User;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
@@ -17,7 +16,7 @@ public interface MybatisArticleRepository extends ArticleRepository{
     Article select(Long articleId);
 
     @Override
-    List<Article> selectAll(String userId);
+    List<Article> selectAll(String registerId);
 
     @Override
     Integer update(Article article, String registerId);
